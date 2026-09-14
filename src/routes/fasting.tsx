@@ -1,16 +1,16 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { autumnEmberDays, MONTHS, monthGrid, ruleForDate, type DayRule } from "@/lib/fasting";
+import { allEmberDays, MONTHS, civilNow, monthGrid, ruleForDate, type DayRule } from "@/lib/fasting";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/fasting")({ component: FastingPage });
 
 function FastingPage() {
-  const now = new Date();
+  const now = civilNow();
   const [cursor, setCursor] = useState({ year: now.getFullYear(), month: now.getMonth() });
   const [selected, setSelected] = useState<DayRule>(() => ruleForDate(now));
   const cells = useMemo(() => monthGrid(cursor.year, cursor.month), [cursor]);
-  const ember = autumnEmberDays(cursor.year);
+  const emberYear = allEmberDays(cursor.year);
   const today = ruleForDate(now);
 
   const shift = (delta: number) => {
@@ -70,6 +70,10 @@ function FastingPage() {
               selected.date.getDate() === cell.date.getDate() &&
               selected.date.getMonth() === cell.date.getMonth() &&
               selected.date.getFullYear() === cell.date.getFullYear();
+            const isToday =
+              today.date.getDate() === cell.date.getDate() &&
+              today.date.getMonth() === cell.date.getMonth() &&
+              today.date.getFullYear() === cell.date.getFullYear();
             return (
               <button
                 key={cell.date.toISOString()}
@@ -79,7 +83,9 @@ function FastingPage() {
                   "min-h-11 rounded-lg text-sm font-medium",
                   isSelected && "bg-accent text-surface",
                   !isSelected && marked && "bg-accent-soft text-accent",
-                  !isSelected && !marked && "text-fg hover:bg-bg",
+                  !isSelected && !marked && cell.inLent && "bg-gold/10 text-fg",
+                  !isSelected && !marked && !cell.inLent && "text-fg hover:bg-bg",
+                  isToday && !isSelected && "ring-1 ring-gold",
                 )}
               >
                 {cell.date.getDate()}
@@ -103,8 +109,16 @@ function FastingPage() {
             <li>Ages 14+: no meat on Fridays.</li>
             <li>Ages 18–59: Ash Wednesday and Good Friday are fast and abstinence.</li>
             <li>Eucharistic fast: one hour before Communion.</li>
-            <li>Ember days of September {cursor.year}:{" "}
-              {ember.map((d) => d.toLocaleDateString("en-US", { month: "short", day: "numeric" })).join(", ")}.
+            <li>
+              Ember days {cursor.year} (traditional, not required in the U.S.):
+              <ul className="mt-2 space-y-1 pl-4">
+                {emberYear.map((season) => (
+                  <li key={season.season}>
+                    <span className="font-medium text-fg">{season.season}:</span>{" "}
+                    {season.days.map((d) => d.toLocaleDateString("en-US", { month: "short", day: "numeric" })).join(", ")}
+                  </li>
+                ))}
+              </ul>
             </li>
           </ul>
         </section>

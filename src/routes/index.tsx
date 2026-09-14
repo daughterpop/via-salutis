@@ -3,6 +3,7 @@ import { ArrowRight, Flame } from "lucide-react";
 import { EmberBand } from "@/components/ember-band";
 import { SubscribeForm } from "@/components/subscribe-form";
 import { ESSAYS } from "@/lib/essays";
+import { civilNow, ruleForDate } from "@/lib/fasting";
 import { SITE, SISTER } from "@/lib/site";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -15,6 +16,7 @@ const SEQUENCE = [
 
 function Home() {
   const recent = ESSAYS.slice(0, 3);
+  const today = ruleForDate(civilNow());
 
   return (
     <main>
@@ -47,6 +49,20 @@ function Home() {
             </Link>
           </p>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-4xl px-4 pt-8 sm:px-6">
+        <Link
+          to="/fasting"
+          className="block rounded-2xl border border-accent-soft bg-accent-soft/40 p-5 transition-shadow hover:shadow-md sm:p-6"
+        >
+          <p className="text-[10px] font-semibold uppercase tracking-[1.5px] text-accent">Today’s rule</p>
+          <h2 className="mt-1 text-xl font-bold text-fg">{today.title}</h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{today.detail}</p>
+          <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent">
+            Open the calendar <ArrowRight size={14} />
+          </span>
+        </Link>
       </div>
 
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-10 sm:px-6 sm:py-12">
