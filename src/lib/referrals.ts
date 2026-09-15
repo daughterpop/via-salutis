@@ -1,4 +1,4 @@
-export type ReferralCategory = "fasting" | "food" | "sleep" | "faith" | "household" | "supplements";
+export type ReferralCategory = "fasting" | "food" | "sleep" | "faith" | "household" | "supplements" | "training";
 
 export type Referral = {
   id: string;
@@ -61,6 +61,34 @@ export const REFERRALS: Referral[] = [
       "Oura tracks sleep and recovery in a ring you can forget you are wearing. Use this referral for 10% off a new ring. Data is for the rule of life — not another thing to obsess over.",
     cardCta: "Get 10% off Oura Ring",
     href: "https://ouraring.com/discount/b79278c3ad?utm_source=user&utm_medium=iac_raf&utm_type=alwayson-cvr&utm_campaign=2026RAF&utm_variant=2026_raf_may",
+  },
+  {
+    id: "transition",
+    categories: ["training"],
+    live: true,
+    inBanner: true,
+    stripHeadline: "1 month free Transition",
+    stripSub: " — swim, bike, and run plans for a full house",
+    stripCta: "Try Transition free",
+    cardEyebrow: "Train inside a vocation",
+    cardBody:
+      "Transition is an AI triathlon app with adaptive swim, bike, and run plans. Code TRANSITIONVTRTF4 is one month free — built for age-groupers who also have a job, a spouse, and kids.",
+    cardCta: "Get 1 month free",
+    href: "https://www.transition.fun?ref=TRANSITIONVTRTF4",
+  },
+  {
+    id: "form-swim",
+    categories: ["training"],
+    live: true,
+    inBanner: false,
+    stripHeadline: "FORM smart swim goggles",
+    stripSub: " — pace and stroke in the pool, not on a watch you cannot see",
+    stripCta: "Shop FORM",
+    cardEyebrow: "See the work in the water",
+    cardBody:
+      "FORM goggles put pace, distance, and stroke rate in your field of view. Useful for the swim you actually do at 5 a.m. before anyone else is up.",
+    cardCta: "Get FORM goggles",
+    href: "https://www.formswim.com/cart/40479402065991:1?attributes[referrerUserId]=019cf7d0-367d-7dd4-ac63-df4fbd8b42a3&attributes[referralCampaign]=one-month-reward",
   },
   {
     id: "lmnt",

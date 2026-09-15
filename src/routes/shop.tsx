@@ -14,12 +14,12 @@ function ShopPage() {
       <p className="text-sm font-medium text-accent">The cellar</p>
       <h1 className="mt-2 font-display text-3xl font-semibold text-fg sm:text-4xl">Things we actually use</h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-        Supplements and gear are the cellarer, not the abbot. Sleep, food, prayer, a prenatal — with the
+        Supplements, sleep, and the training you actually do — with the
         referral perk written in the open. No protocol. No medical claims. Money tools live on{" "}
         <a href={SISTER.href} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
           {SISTER.name}
         </a>
-        . Triathlon apps do not belong in either cellar.
+        .
       </p>
 
       <h2 className="mt-10 font-display text-xl font-semibold text-fg">Live referrals</h2>

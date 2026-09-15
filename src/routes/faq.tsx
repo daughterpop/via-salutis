@@ -24,10 +24,6 @@ const FAQS = [
     q: "What is Ember?",
     a: "A short Sunday letter: one fast, one food, one prayer. Named for the Ember days — four times a year the Church asks the household to fast for the harvest and for priests.",
   },
-  {
-    q: "Where did the triathlon tools go?",
-    a: "Off this cellar. Transition and FORM are training gear, not salus. Money calculators stay on Via Fidelitatis. What belongs here is food, sleep, fasting, a prenatal, and prayer.",
-  },
 ];
 
 function FaqPage() {
