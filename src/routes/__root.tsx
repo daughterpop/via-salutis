@@ -1,4 +1,5 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import { SiteShell } from "@/components/site-shell";
 import { SITE } from "@/lib/site";
 import appCss from "../styles.css?url";
@@ -42,6 +43,7 @@ function RootDocument() {
           <Outlet />
         </SiteShell>
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );
