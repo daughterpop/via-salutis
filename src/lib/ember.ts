@@ -16,6 +16,24 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "seek-while-near",
+    issue: 2,
+    title: "Seek while he is near",
+    lede: "The Ember days are behind the house. This week returns to ordinary time in the body: one Friday, ordinary food, and the nearness of the Lord who does not wait for a perfect schedule.",
+    dateLabel: "September 20, 2026",
+    sundayLabel: "25th Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Keep Friday after Ember. Meatless is still the floor, not a recovery program." },
+      { lane: "food", title: "Restock the ordinary table. The body that fasted needs real food, not a new rule." },
+      { lane: "prayer", title: "Seek the LORD while he may be found; call him while he is near." },
+    ],
+    body: [
+      "Ember week asks more of the household and then ends. What follows is not a cleanse or a rebound protocol. It is the same Friday abstinence, the same table, and the same need for sleep that the children and the Mass already require. The body is not a project that resets every season; it is the temple that must still carry the week.",
+      "Isaiah does not say seek the Lord when the schedule is clear or the fasting score is high. He says seek him while he may be found, call him while he is near. The vineyard owner pays the last workers the same wage. The house that kept Ember and the house that could only keep Friday both stand under the same generosity. Grumbling about who did more is not the work of the week.",
+      "Protect one hour of sleep. Put real food back on the table without apology. Begin the meal with the sign of the cross. That is usually enough. The Lord is near to all who call upon him in truth; the body does not have to be optimized before it can answer.",
+    ],
+  },
+  {
     slug: "keep-friday-ordinary",
     issue: 1,
     title: "Keep Friday ordinary",
