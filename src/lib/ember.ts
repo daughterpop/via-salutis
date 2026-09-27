@@ -16,6 +16,24 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "change-your-mind",
+    issue: 3,
+    title: "Change your mind",
+    lede: "A man had two sons. One said no and later went; the other said yes and stayed home. This week the body gets the same chance: keep Friday, feed the house, and do the small work that was already asked.",
+    dateLabel: "September 27, 2026",
+    sundayLabel: "26th Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Keep the Friday you already know. Meatless is the father’s will for the day, not a new resolution." },
+      { lane: "food", title: "Put ordinary food on the table. The body that said yes to a protocol still needs supper." },
+      { lane: "prayer", title: "Which of the two did his father’s will? The one who changed his mind and went." },
+    ],
+    body: [
+      "Most households do not fail at the large ascesis. They fail at the second son’s first answer. The calendar fills with good intentions about sleep, screens, and meat, and the actual Friday arrives with leftover pizza already in the car. The Gospel this Sunday does not praise the polished yes that never leaves the mouth. It praises the one who said no, then turned, and went into the vineyard.",
+      "Ezekiel is blunt: the one who turns from the wickedness he has committed shall preserve his life. Philippians asks for the same mind that was in Christ, who emptied himself and became obedient. None of that requires a new stack or a recovery week. It requires the small obedience already on the books: no meat on Friday, a real meal, one hour of sleep protected so the house can still reach Mass and Compline.",
+      "Change your mind about the body this week the way the first son did. Stop treating the rule as optional once the week is hard. Mark the Friday. Feed the children without apology. Begin the meal with the sign of the cross. The Lord does not wait for the optimized schedule. He waits for the one who finally goes.",
+    ],
+  },
+  {
     slug: "seek-while-near",
     issue: 2,
     title: "Seek while he is near",
