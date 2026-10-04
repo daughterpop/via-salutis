@@ -16,6 +16,24 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "fruit-at-the-proper-time",
+    issue: 4,
+    title: "Fruit at the proper time",
+    lede: "Vintage time is what the Gospel calls this week. The landowner does not ask for a new vineyard. He asks for the produce already owed: Friday kept, the table fed, and the anxiety handed over in prayer.",
+    dateLabel: "October 4, 2026",
+    sundayLabel: "27th Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Keep Friday, October 9. Abstinence is the produce, not a harder fast invented for October." },
+      { lane: "food", title: "Feed the house ordinary food. A thin pantry is not a virtue; restock it." },
+      { lane: "prayer", title: "Have no anxiety at all, but in everything, by prayer and petition, with thanksgiving, make your requests known to God." },
+    ],
+    body: [
+      "Isaiah’s friend had already done the work. He spaded the hillside, cleared the stones, planted the choicest vines, built a watchtower, and hewed a press. Then he looked for grapes and found wild ones. Matthew tells the same story from the gate: the landowner leased a finished vineyard, and when vintage came the tenants kept the produce and refused the son. A household can look like that in the first week of October. The rule is known. Friday is on the calendar. Sleep was named last month. And the week still comes in wild — late screens, meat already in the car, a body anxious enough that Mass feels like one more errand.",
+      "Friday, October 9, is ordinary abstinence. From fourteen on, no meat. That is the fruit at the proper time, not a seasonal challenge and not a way to make up for September. The memorial of Francis yields to this Sunday, so the house does not invent a feast exception and then let the real Friday slide. Do not add a second fast to prove seriousness. Pregnant and nursing mothers, the sick, and anyone for whom food is already a war are not called to more. The owner asked for the fruit of the vine he already planted: one meatless day, small enough to repeat, kept even when the week is hard.",
+      "Philippians is the prayer for a tired parent, and it is precise. Have no anxiety at all, but in everything, by prayer and petition, with thanksgiving, make your requests known to God. Then the peace of God that surpasses all understanding will guard your hearts and minds in Christ Jesus. The guarding is not a mood you manufacture after the children are down. It follows the handing over. Name the thing crowding sleep — the bill, the cough, the morning that starts too early — and give it before the meal, with thanks for the food actually on the table. If the pantry is thin, the cellar still has Thrive at forty percent off a first order of ordinary groceries. That is a restock, not a rule of life. Begin with the sign of the cross. Keep Friday. Ask. The face of the Lord is what restores the vine.",
+    ],
+  },
+  {
     slug: "change-your-mind",
     issue: 3,
     title: "Change your mind",
