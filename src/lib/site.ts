@@ -4,7 +4,7 @@ export const SITE = {
   tagline: "Faithful health for Catholic bodies",
   description:
     "Fasting, prayer, and a household rule so the body can be what it already is: a temple of the Holy Spirit.",
-  email: "dustin.himmerich@protonmail.com",
+  email: "dhimmer1@gmail.com",
 } as const;
 
 export const SISTER = {
