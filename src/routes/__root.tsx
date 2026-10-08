@@ -1,5 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site-shell";
+import { Analytics } from "@vercel/analytics/react";
+import { OG_IMAGE, SITE_JSON_LD } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import appCss from "../styles.css?url";
 
@@ -14,8 +16,16 @@ export const Route = createRootRoute({
       { property: "og:title", content: `${SITE.name} — ${SITE.tagline}` },
       { property: "og:description", content: SITE.description },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.svg" },
+      { property: "og:site_name", content: SITE.name },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: `${SITE.name} — ${SITE.gloss}` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
+      { "script:ld+json": SITE_JSON_LD },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -42,6 +52,7 @@ function RootDocument() {
           <Outlet />
         </SiteShell>
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );

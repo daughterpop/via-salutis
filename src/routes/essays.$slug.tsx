@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { essayBySlug, ESSAYS } from "@/lib/essays";
+import { essayHead } from "@/lib/seo";
 import { SISTER } from "@/lib/site";
 
 export const Route = createFileRoute("/essays/$slug")({
@@ -8,6 +9,7 @@ export const Route = createFileRoute("/essays/$slug")({
     if (!essay) throw notFound();
     return essay;
   },
+  head: ({ loaderData }) => (loaderData ? essayHead(loaderData) : {}),
   component: EssayPage,
 });
 

@@ -1,8 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SubscribeForm } from "@/components/subscribe-form";
+import { emberHead } from "@/lib/seo";
 import { formatIssue, laneLabel, latestEdition } from "@/lib/ember";
 
-export const Route = createFileRoute("/ember")({ component: EmberPage });
+export const Route = createFileRoute("/ember")({
+  head: () => emberHead(),
+  component: EmberPage,
+});
 
 function EmberPage() {
   const latest = latestEdition();

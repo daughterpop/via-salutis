@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { ArrowRight, Flame } from "lucide-react";
 import { EmberBand } from "@/components/ember-band";
 import { SubscribeForm } from "@/components/subscribe-form";
@@ -6,7 +7,15 @@ import { ESSAYS } from "@/lib/essays";
 import { civilNow, ruleForDate } from "@/lib/fasting";
 import { SITE, SISTER } from "@/lib/site";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  head: () =>
+    pageHead({
+      title: `${SITE.name} — ${SITE.tagline}`,
+      description: SITE.description,
+      path: "/",
+    }),
+  component: Home,
+});
 
 const SEQUENCE = [
   { slug: "temple-not-a-project", label: "Temple, not a project" },

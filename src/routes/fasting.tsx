@@ -1,9 +1,18 @@
 import { useMemo, useState } from "react";
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { allEmberDays, MONTHS, civilNow, monthGrid, ruleForDate, type DayRule } from "@/lib/fasting";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/fasting")({ component: FastingPage });
+export const Route = createFileRoute("/fasting")({
+  head: () =>
+    pageHead({
+      title: "Catholic fasting calendar",
+      description: "Keep the Church’s fast: this week’s Friday abstinence, Ember days, Ash Wednesday, Good Friday, and the solemnities that lift abstinence — computed for the U.S. calendar.",
+      path: "/fasting",
+    }),
+  component: FastingPage,
+});
 
 function FastingPage() {
   const now = civilNow();

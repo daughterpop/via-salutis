@@ -15,6 +15,7 @@ import { Route as EmberRouteImport } from './routes/ember'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FastingRouteImport } from './routes/fasting'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as EssaysIndexRouteImport } from './routes/essays.index'
 import { Route as EssaysSlugRouteImport } from './routes/essays.$slug'
 
@@ -48,6 +49,11 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EssaysIndexRoute = EssaysIndexRouteImport.update({
   id: '/essays/',
   path: '/essays/',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/fasting': typeof FastingRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/essays/$slug': typeof EssaysSlugRoute
   '/essays/': typeof EssaysIndexRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/fasting': typeof FastingRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/essays/$slug': typeof EssaysSlugRoute
   '/essays': typeof EssaysIndexRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/fasting': typeof FastingRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/essays/$slug': typeof EssaysSlugRoute
   '/essays/': typeof EssaysIndexRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/fasting'
     | '/shop'
+    | '/sitemap.xml'
     | '/essays/$slug'
     | '/essays/'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/fasting'
     | '/shop'
+    | '/sitemap.xml'
     | '/essays/$slug'
     | '/essays'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/fasting'
     | '/shop'
+    | '/sitemap.xml'
     | '/essays/$slug'
     | '/essays/'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   FastingRoute: typeof FastingRoute
   ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   EssaysSlugRoute: typeof EssaysSlugRoute
   EssaysIndexRoute: typeof EssaysIndexRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/essays/': {
       id: '/essays/'
       path: '/essays'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   FastingRoute: FastingRoute,
   ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   EssaysSlugRoute: EssaysSlugRoute,
   EssaysIndexRoute: EssaysIndexRoute,
 }

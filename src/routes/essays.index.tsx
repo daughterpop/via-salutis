@@ -1,7 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { ESSAYS } from "@/lib/essays";
 
-export const Route = createFileRoute("/essays/")({ component: EssaysIndex });
+export const Route = createFileRoute("/essays/")({
+  head: () =>
+    pageHead({
+      title: "Essays",
+      description: "Essays on temperance, fasting, the Eucharist as medicine, and the body as a temple of the Holy Spirit — not a project.",
+      path: "/essays",
+    }),
+  component: EssaysIndex,
+});
 
 function EssaysIndex() {
   return (
