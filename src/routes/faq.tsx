@@ -1,7 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { SISTER } from "@/lib/site";
 
-export const Route = createFileRoute("/faq")({ component: FaqPage });
+export const Route = createFileRoute("/faq")({
+  head: () =>
+    pageHead({
+      title: "Common questions",
+      description: "Answers on Catholic fasting and abstinence rules, who is dispensed, Ember days, supplements, and how Via Salutis fits with medical advice.",
+      path: "/faq",
+    }),
+  component: FaqPage,
+});
 
 const FAQS = [
   {

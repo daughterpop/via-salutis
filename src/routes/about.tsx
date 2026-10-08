@@ -1,7 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { SITE, SISTER } from "@/lib/site";
 
-export const Route = createFileRoute("/about")({ component: AboutPage });
+export const Route = createFileRoute("/about")({
+  head: () =>
+    pageHead({
+      title: "About",
+      description: `${SITE.name} is Latin for “${SITE.gloss}.” Fasting, prayer, and a household rule for Catholic families — and why health and salvation belong together.`,
+      path: "/about",
+    }),
+  component: AboutPage,
+});
 
 function AboutPage() {
   return (

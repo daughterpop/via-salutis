@@ -1,9 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { ExternalLink } from "lucide-react";
 import { liveReferrals, recommendedReferrals } from "@/lib/referrals";
 import { SISTER } from "@/lib/site";
 
-export const Route = createFileRoute("/shop")({ component: ShopPage });
+export const Route = createFileRoute("/shop")({
+  head: () =>
+    pageHead({
+      title: "The cellar: things we actually use",
+      description: "Supplements, sleep, groceries, and training the house actually uses — with honest affiliate disclosure and nothing that replaces the Church’s fast.",
+      path: "/shop",
+    }),
+  component: ShopPage,
+});
 
 function ShopPage() {
   const live = liveReferrals();
