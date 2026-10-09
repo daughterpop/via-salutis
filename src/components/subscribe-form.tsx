@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { formatIssue, latestEdition } from "@/lib/ember";
-import { SITE } from "@/lib/site";
+import { submitForm } from "@/lib/formsubmit";
 
 export function SubscribeForm() {
   const [email, setEmail] = useState("");
@@ -16,24 +16,13 @@ export function SubscribeForm() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${SITE.email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          _subject: "New Via Salutis subscriber",
-          _template: "table",
-          _captcha: "false",
-        }),
+      await submitForm({
+        email,
+        _subject: "New Via Salutis subscriber",
+        _template: "table",
+        _captcha: "false",
       });
-      if (response.ok) setSubmitted(true);
-      else {
-        const data = (await response.json().catch(() => ({}))) as { message?: string };
-        throw new Error(data.message || "Subscription failed");
-      }
+      setSubmitted(true);
     } catch {
       setError("Something went wrong. Try again later.");
     } finally {
@@ -51,6 +40,8 @@ export function SubscribeForm() {
         <div className="space-y-4">
           <input
             type="email"
+            aria-label="Email address"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
