@@ -119,7 +119,7 @@ export function emberHead(edition: EmberEdition = latestEdition()) {
 }
 
 /** Static, indexable routes. Keep in sync with src/routes when adding pages. */
-export const STATIC_PATHS = ["/", "/fasting", "/essays", "/ember", "/shop", "/faq", "/about"] as const;
+export const STATIC_PATHS = ["/", "/fasting", "/essays", "/ember", "/shop", "/faq", "/about", "/contact"] as const;
 
 export type SitemapEntry = { loc: string; lastmod?: string };
 
