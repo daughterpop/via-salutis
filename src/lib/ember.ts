@@ -16,6 +16,24 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "everything-is-ready",
+    issue: 5,
+    title: "Everything is ready",
+    lede: "The king has already prepared the banquet. This week the household answers with ordinary Friday abstinence, a real table, and the small yes that does not wait for a quieter schedule.",
+    dateLabel: "October 11, 2026",
+    sundayLabel: "28th Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Keep Friday, October 16. The invitation is already issued; meatless is the response." },
+      { lane: "food", title: "Put ordinary food on the table. The feast is ready; the house does not invent a new menu." },
+      { lane: "prayer", title: "Behold, I have prepared my banquet, and everything is ready; come to the feast." },
+    ],
+    body: [
+      "Isaiah sees a mountain where the Lord of hosts provides rich food and choice wines for all peoples, and destroys the veil that covers the nations. Matthew puts the same abundance in a king’s house: the calves and fattened cattle are killed, everything is ready, come. The ones who refuse go to the farm or the business. A household knows that refusal. The week fills with screens, the leftover meat is already in the car, sleep is traded for one more thing that feels urgent, and Mass becomes the errand that can wait.",
+      "Friday, October 16, is ordinary abstinence. From fourteen on, no meat. That is the wedding garment the house can actually put on this week — small, repeatable, already known. Do not add a harder fast to prove seriousness. Pregnant and nursing mothers, the sick, and anyone for whom food is already a war are not called to more. Philippians is the other half of the same lesson: the secret of being well fed and of going hungry, of living in abundance and of being in need. The body does not have to be optimized before it can answer the call. Contentment is learned in the ordinary circumstance, not after the schedule clears.",
+      "Psalm 23 leads the household beside restful waters and refreshes the soul. Protect one hour of sleep so the house can still reach Mass and Compline. If the night is thin and a ring would serve the rule rather than become another score, the cellar has Oura at ten percent off. That is a tool, not the garment. Begin the meal with the sign of the cross. Keep Friday. Come. Many are invited; the few who are chosen are the ones who show up in what they already have.",
+    ],
+  },
+  {
     slug: "fruit-at-the-proper-time",
     issue: 4,
     title: "Fruit at the proper time",
