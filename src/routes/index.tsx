@@ -41,6 +41,11 @@ function Home() {
             <span className="font-semibold text-fg">{SITE.name}</span> means “{SITE.gloss}.”
             Tools and writing so fasting, sleep, and food stop crowding out Mass, kids, and prayer.
           </p>
+          <img
+            src="/images/salutis-hero.jpg"
+            alt="Simple loaf of bread, knife, and glass of water on a kitchen counter in natural light"
+            className="mx-auto mb-8 w-full max-w-2xl rounded-2xl shadow-sm"
+          />
           <Link
             to="/fasting"
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-surface shadow-sm hover:bg-accent-hover sm:text-base"
