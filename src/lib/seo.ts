@@ -107,14 +107,15 @@ export function essayHead(essay: Essay) {
   });
 }
 
-export function emberHead(edition: EmberEdition = latestEdition()) {
+export function emberHead(edition: EmberEdition = latestEdition(), path?: string) {
   const title = `Ember ${formatIssue(edition)}: ${edition.title}`;
+  const issuePath = path ?? "/ember";
   return pageHead({
     title,
     description: edition.lede,
-    path: "/ember",
+    path: issuePath,
     type: "article",
-    jsonLd: articleJsonLd({ headline: title, description: edition.lede, path: "/ember", date: isoDate(edition.dateLabel) }),
+    jsonLd: articleJsonLd({ headline: title, description: edition.lede, path: issuePath, date: isoDate(edition.dateLabel) }),
   });
 }
 
@@ -138,6 +139,7 @@ export function sitemapEntries(): SitemapEntry[] {
   return [
     ...STATIC_PATHS.map((p) => ({ loc: absoluteUrl(p), lastmod: lastmodFor[p] })),
     ...ESSAYS.map((e) => ({ loc: absoluteUrl(`/essays/${e.slug}`), lastmod: isoDate(e.date) })),
+    ...EMBER_EDITIONS.map((e) => ({ loc: absoluteUrl(`/ember/${e.slug}`), lastmod: isoDate(e.dateLabel) })),
   ];
 }
 
@@ -149,4 +151,60 @@ export function sitemapXml(entries: SitemapEntry[] = sitemapEntries()) {
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
+
+export type FeedEntry = {
+  title: string;
+  link: string;
+  description: string;
+  pubDate?: string;
+  guid: string;
+};
+
+function escapeXml(s: string) {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+/** Essays + Ember editions, newest-first, capped at 25. */
+export function feedEntries(): FeedEntry[] {
+  const essayItems = ESSAYS.map((e) => ({
+    title: e.title,
+    link: absoluteUrl(`/essays/${e.slug}`),
+    description: e.excerpt,
+    iso: isoDate(e.date),
+    guid: absoluteUrl(`/essays/${e.slug}`),
+  }));
+  const emberItems = EMBER_EDITIONS.map((ed) => ({
+    title: `Ember ${formatIssue(ed)}: ${ed.title}`,
+    link: absoluteUrl(`/ember/${ed.slug}`),
+    description: ed.lede,
+    iso: isoDate(ed.dateLabel),
+    guid: absoluteUrl(`/ember/${ed.slug}`),
+  }));
+  return [...essayItems, ...emberItems]
+    .filter((i): i is typeof i & { iso: string } => !!i.iso)
+    .sort((a, b) => (a.iso < b.iso ? 1 : -1))
+    .slice(0, 25)
+    .map(({ title, link, description, iso, guid }) => ({
+      title,
+      link,
+      description,
+      guid,
+      pubDate: new Date(`${iso}T12:00:00Z`).toUTCString(),
+    }));
+}
+
+export function feedXml(entries: FeedEntry[] = feedEntries()) {
+  const items = entries
+    .map(
+      (e) =>
+        `  <item>\n    <title>${escapeXml(e.title)}</title>\n    <link>${e.link}</link>\n    <guid isPermaLink="true">${e.guid}</guid>${e.pubDate ? `\n    <pubDate>${e.pubDate}</pubDate>` : ""}\n    <description>${escapeXml(e.description)}</description>\n  </item>`,
+    )
+    .join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n<channel>\n  <title>${escapeXml(`${SITE.name} — ${SITE.tagline}`)}</title>\n  <link>${SITE_URL}/</link>\n  <description>${escapeXml(SITE.description)}</description>\n  <language>en-us</language>\n${items}\n</channel>\n</rss>\n`;
 }

@@ -58,6 +58,16 @@ export const ESSAYS: Essay[] = [
   },
 ];
 
+/**
+ * Ordered reading sequence shown on the homepage ("Read the sequence").
+ * Slugs reference entries in ESSAYS; labels are the short display titles.
+ */
+export const ESSAY_SEQUENCE = [
+  { slug: "temple-not-a-project", label: "Temple, not a project" },
+  { slug: "fasting-is-not-keto", label: "Fasting is not keto" },
+  { slug: "hildegard-viriditas", label: "Hildegard’s viriditas" },
+] as const;
+
 export function essayBySlug(slug: string) {
   return ESSAYS.find((e) => e.slug === slug);
 }

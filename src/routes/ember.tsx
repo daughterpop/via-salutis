@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SubscribeForm } from "@/components/subscribe-form";
 import { emberHead } from "@/lib/seo";
-import { formatIssue, laneLabel, latestEdition } from "@/lib/ember";
+import { EMBER_EDITIONS, formatIssue, laneLabel, latestEdition } from "@/lib/ember";
 
 export const Route = createFileRoute("/ember")({
   head: () => emberHead(),
@@ -10,6 +10,7 @@ export const Route = createFileRoute("/ember")({
 
 function EmberPage() {
   const latest = latestEdition();
+  const past = EMBER_EDITIONS.filter((e) => e.slug !== latest.slug);
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12">
@@ -39,6 +40,24 @@ function EmberPage() {
           Open this week’s calendar
         </Link>
       </p>
+      {past.length > 0 && (
+        <div className="mt-10 border-t border-border pt-8">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted">Past issues</p>
+          <ul className="mt-3 space-y-2">
+            {past.map((issue) => (
+              <li key={issue.slug}>
+                <Link
+                  to="/ember/$slug"
+                  params={{ slug: issue.slug }}
+                  className="font-medium text-accent hover:underline"
+                >
+                  {formatIssue(issue)}: {issue.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <SubscribeForm />
     </main>
   );
