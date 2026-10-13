@@ -111,6 +111,10 @@ export function latestEdition() {
   return EMBER_EDITIONS[0]!;
 }
 
+export function editionBySlug(slug: string) {
+  return EMBER_EDITIONS.find((e) => e.slug === slug);
+}
+
 export function formatIssue(edition: EmberEdition) {
   return `Issue ${String(edition.issue).padStart(2, "0")}`;
 }
