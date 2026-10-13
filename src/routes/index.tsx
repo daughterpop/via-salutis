@@ -3,7 +3,7 @@ import { pageHead } from "@/lib/seo";
 import { ArrowRight, Flame } from "lucide-react";
 import { EmberBand } from "@/components/ember-band";
 import { SubscribeForm } from "@/components/subscribe-form";
-import { ESSAYS } from "@/lib/essays";
+import { ESSAYS, ESSAY_SEQUENCE } from "@/lib/essays";
 import { civilNow, ruleForDate } from "@/lib/fasting";
 import { SITE, SISTER } from "@/lib/site";
 
@@ -16,12 +16,6 @@ export const Route = createFileRoute("/")({
     }),
   component: Home,
 });
-
-const SEQUENCE = [
-  { slug: "temple-not-a-project", label: "Temple, not a project" },
-  { slug: "fasting-is-not-keto", label: "Fasting is not keto" },
-  { slug: "hildegard-viriditas", label: "Hildegard’s viriditas" },
-] as const;
 
 function Home() {
   const recent = ESSAYS.slice(0, 3);
@@ -113,13 +107,13 @@ function Home() {
           </p>
           <Link
             to="/essays/$slug"
-            params={{ slug: "temple-not-a-project" }}
+            params={{ slug: ESSAY_SEQUENCE[0].slug }}
             className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-hover"
           >
             Start with the temple <ArrowRight size={14} />
           </Link>
           <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted">
-            {SEQUENCE.map((item, i) => (
+            {ESSAY_SEQUENCE.map((item, i) => (
               <span key={item.slug} className="inline-flex items-center gap-3">
                 {i > 0 && <span className="text-border">·</span>}
                 <Link to="/essays/$slug" params={{ slug: item.slug }} className="text-accent hover:underline">
