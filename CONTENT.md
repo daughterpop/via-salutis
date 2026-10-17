@@ -1,8 +1,34 @@
 # CONTENT.md — Via Salutis publishing guide
 
 How content gets published on via-salutis.com. All content lives in TypeScript
-data files under `src/lib/` — there is no CMS and no content automation.
+data files under `src/lib/` — there is no CMS. A weekly Ember automation drafts new
+issues in `src/lib/ember.ts`; it must follow the voice rules below.
 Edit a data file, open a PR, merge, Vercel deploys.
+
+## Voice rules (read before writing any essay or Ember issue)
+
+These rules apply to people and automations alike. Before drafting, read the
+five most recent entries in `src/lib/ember.ts` (and `src/lib/essays.ts` for
+essays) and do not repeat what they did.
+
+1. **Vary the structure.** Do not reuse the previous issue's paragraph count,
+   order, or opening move. Some weeks open with Scripture, some with the
+   household scene, some with the rule itself; some run two paragraphs, some
+   four. Never fall back on the same three-paragraph skeleton.
+2. **No recycled images or closings.** If an image, phrase, or closing line
+   appears in any of the last five issues, don't use it. Retired for now:
+   "meat in the car" (and close variants) and closing with "begin the meal
+   with the sign of the cross."
+3. **Keep the devotional clean.** Product, referral, and affiliate mentions
+   never appear inside the body or the prayer/close. If an issue includes one,
+   it goes after the sign-off in a separate, clearly marked note.
+4. **Plain, grave, pastoral voice.** Concrete household detail over
+   abstraction. No spa, gym, or keto-as-identity language, no emoji, no
+   stock AI phrasing ("in a world where", "let's dive in", "it's not just X,
+   it's Y").
+5. **Faithful and careful.** Stay faithful to Catholic teaching and the
+   Church's actual fasting rules; invent no protocol. General wellness only,
+   with no medical claims. No opinion pieces.
 
 ## Adding an essay
 
