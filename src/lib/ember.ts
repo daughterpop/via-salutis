@@ -19,19 +19,19 @@ export const EMBER_EDITIONS: EmberEdition[] = [
     slug: "what-belongs-to-god",
     issue: 6,
     title: "What belongs to God",
-    lede: "The coin has Caesar’s face. This week the household sorts what the body owes the week from what it owes the Lord: Friday kept, the table ordinary, and the prayer that does not wait for a quieter mission.",
+    lede: "Jesus asks whose image is on the coin. This week the household pays the week what it honestly owes and gives God what bears his image: Friday abstinence, one shared supper, and a prayer for the missions.",
     dateLabel: "October 18, 2026",
     sundayLabel: "29th Sunday in Ordinary Time",
     lanes: [
-      { lane: "fast", title: "Keep Friday, October 23. Meatless is the debt the body already knows." },
-      { lane: "food", title: "Ordinary food, not a special menu for Mission Sunday." },
+      { lane: "fast", title: "Friday, October 23: abstinence from meat, owed and already known. Nothing added." },
+      { lane: "food", title: "Sit the whole house down to one shared supper this week, and give thanks for what was given." },
       { lane: "prayer", title: "Then repay to Caesar what belongs to Caesar and to God what belongs to God." },
     ],
     body: [
-      "The Pharisees brought a coin. The house brings the week: the late screen, the unplanned Friday, the sleep already spent before Mass. Jesus asks whose image is on the coin. The body carries both the ordinary duty and the Lord’s claim. Friday, October 23, is the small repayment already written: from fourteen on, no meat. Pregnant and nursing mothers, the sick, and anyone for whom food is already a war are not called to more. Do not invent a harder fast to match the collection plate.",
-      "Isaiah names Cyrus the anointed who does not know the Lord, yet the Lord uses him. The household is not called to be a king or a missionary abroad this week. It is called to keep the image of God clear in the ordinary: real food on the table, not the drive-thru bag that makes Sunday feel like one more errand. Psalm 96 tells the lands to give the Lord glory and honor. The table is one place that happens without a new program.",
-      "Paul gives thanks for the Thessalonians’ work of faith, labor of love, and endurance in hope. World Mission Sunday asks for the same in small form: protect one hour of sleep so the house can still reach Mass and the children. The body does not have to be optimized before it can answer. Render the ordinary to the ordinary, and the rest to God.",
-      "From the cellar: The Catholic Company offers ten dollars off a first order of seventy dollars or more — Bibles, prayer books, and the fasting literature the house might actually open, not a substitute for the prayer."
+      "The Pharisees bring a coin to trap him, and Jesus asks them to look at it. Whose image is this? Caesar’s, so it goes back to Caesar. The question underneath is one a household can ask at its own table: whose image is on us? The week has rightful claims — the job, the bills, the children’s schedules — and they deserve to be paid honestly. But the body was stamped with another image first, and it belongs to the One who made it. Friday, October 23, is a small coin returned to him. Latin-rite Catholics fourteen and older abstain from meat; in the U.S. a bishop-approved penance may take its place outside Lent. Those who are ill, pregnant, or nursing, and anyone for whom eating is already hard, are not asked to add anything. No one needs a stricter fast to prove the debt is serious.",
+      "Isaiah calls Cyrus the Lord’s anointed — a Persian king who did not know him, used anyway to bring the exiles home. That is consolation for a tired house. God does not wait for the family to become impressive before he works through it. Psalm 96 tells the nations to give the Lord glory and honor, and most weeks that glory is paid in small change: the dishes done, a child’s fever watched through the night, grace said over a plain supper.",
+      "Paul thanks God for the Thessalonians’ work of faith, labor of love, and endurance in hope. On World Mission Sunday the Church prays for those who carry the Gospel far from home, and a household can join them from where it stands. Say one Our Father for the missions before the week begins, and let Friday be the rest of the offering. Give Caesar his coin. Give God the one who bears his image.",
+      "From the cellar: The Catholic Company takes ten dollars off a first order of seventy dollars or more — Bibles and prayer books worth opening, never a substitute for the prayer itself.",
     ],
   },
   {
