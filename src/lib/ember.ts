@@ -16,6 +16,25 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "what-belongs-to-god",
+    issue: 6,
+    title: "What belongs to God",
+    lede: "The coin has Caesar’s face. This week the household sorts what the body owes the week from what it owes the Lord: Friday kept, the table ordinary, and the prayer that does not wait for a quieter mission.",
+    dateLabel: "October 18, 2026",
+    sundayLabel: "29th Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Keep Friday, October 23. Meatless is the debt the body already knows." },
+      { lane: "food", title: "Ordinary food, not a special menu for Mission Sunday." },
+      { lane: "prayer", title: "Then repay to Caesar what belongs to Caesar and to God what belongs to God." },
+    ],
+    body: [
+      "The Pharisees brought a coin. The house brings the week: the late screen, the unplanned Friday, the sleep already spent before Mass. Jesus asks whose image is on the coin. The body carries both the ordinary duty and the Lord’s claim. Friday, October 23, is the small repayment already written: from fourteen on, no meat. Pregnant and nursing mothers, the sick, and anyone for whom food is already a war are not called to more. Do not invent a harder fast to match the collection plate.",
+      "Isaiah names Cyrus the anointed who does not know the Lord, yet the Lord uses him. The household is not called to be a king or a missionary abroad this week. It is called to keep the image of God clear in the ordinary: real food on the table, not the drive-thru bag that makes Sunday feel like one more errand. Psalm 96 tells the lands to give the Lord glory and honor. The table is one place that happens without a new program.",
+      "Paul gives thanks for the Thessalonians’ work of faith, labor of love, and endurance in hope. World Mission Sunday asks for the same in small form: protect one hour of sleep so the house can still reach Mass and the children. The body does not have to be optimized before it can answer. Render the ordinary to the ordinary, and the rest to God.",
+      "From the cellar: The Catholic Company offers ten dollars off a first order of seventy dollars or more — Bibles, prayer books, and the fasting literature the house might actually open, not a substitute for the prayer."
+    ],
+  },
+  {
     slug: "everything-is-ready",
     issue: 5,
     title: "Everything is ready",
