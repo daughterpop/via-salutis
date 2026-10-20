@@ -101,6 +101,13 @@ function lentWindow(year: number) {
 
 type NamedDay = { title: string; solemnity: boolean; note: string };
 
+/** First Sunday of Advent: the Sunday falling November 27 – December 3. */
+function firstSundayOfAdvent(year: number) {
+  const nov27 = atNoon(year, 10, 27);
+  const daysUntilSunday = (7 - nov27.getDay()) % 7;
+  return addDays(nov27, daysUntilSunday);
+}
+
 /** Fixed feasts plus a few moveable solemnities that can outrank Friday abstinence. */
 function liturgicalName(date: Date): NamedDay | null {
   const easter = easterSunday(date.getFullYear());
@@ -124,6 +131,30 @@ function liturgicalName(date: Date): NamedDay | null {
     };
   }
 
+  // Advent Sundays outrank fixed memorials on the same date (e.g. St Lucy on Dec 13
+  // when it falls on the Third Sunday of Advent), so they are checked first.
+  const advent1 = firstSundayOfAdvent(date.getFullYear());
+  if (isSameDay(date, addDays(advent1, -7))) {
+    return {
+      title: "Christ the King",
+      solemnity: true,
+      note: "The last Sunday of the year. A solemnity. Feast — Christ is King.",
+    };
+  }
+  const adventNames = ["First", "Second", "Third", "Fourth"] as const;
+  for (let i = 0; i < adventNames.length; i++) {
+    if (isSameDay(date, addDays(advent1, i * 7))) {
+      return {
+        title: `${adventNames[i]} Sunday of Advent`,
+        solemnity: false,
+        note:
+          i === 0
+            ? "The Church begins a new year. Violet, waiting, and the wreath."
+            : "Advent. Watch, pray, and keep the fasts the season asks.",
+      };
+    }
+  }
+
   const m = date.getMonth();
   const d = date.getDate();
   const fixed: Array<readonly [number, number, NamedDay]> = [
@@ -143,7 +174,24 @@ function liturgicalName(date: Date): NamedDay | null {
       },
     ],
     [10, 1, { title: "All Saints", solemnity: true, note: "A holy day. Feast. Friday abstinence is dispensed if this falls on Friday." }],
-    [11, 8, { title: "Immaculate Conception", solemnity: true, note: "A holy day. Feast. Friday abstinence is dispensed if this falls on Friday." }],
+    [
+      11,
+      8,
+      {
+        title: "Immaculate Conception",
+        solemnity: true,
+        note: "A holy day. Feast. Friday abstinence is dispensed if this falls on Friday.",
+      },
+    ],
+    [
+      11,
+      12,
+      {
+        title: "Our Lady of Guadalupe",
+        solemnity: false,
+        note: "Patroness of the Americas. Feast in the heart, even where it is not a holy day.",
+      },
+    ],
     [
       11,
       13,
