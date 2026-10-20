@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { pageHead } from "@/lib/seo";
 import { SISTER } from "@/lib/site";
 
@@ -12,14 +13,24 @@ export const Route = createFileRoute("/faq")({
   component: FaqPage,
 });
 
-const FAQS = [
+const FAQS: Array<{ q: string; a: ReactNode }> = [
   {
     q: "Is this medical advice?",
     a: "No. Fasting, sleep, and training are discussed as a Catholic rule of life. For diagnosis, medication, pregnancy, or an eating disorder, talk to a physician — and if food has become a battlefield, a priest as well.",
   },
   {
     q: "Do I have to fast like a monk?",
-    a: "No. The floor for most Latin-rite Catholics is Friday abstinence and the two fast days of Ash Wednesday and Good Friday. Ember days are traditional, not currently required in the U.S. Start there. Add nothing until that is ordinary.",
+    a: (
+      <>
+        No. The floor for most Latin-rite Catholics is Friday abstinence and the two fast days of Ash
+        Wednesday and Good Friday. Ember days are traditional, not currently required in the U.S. Start
+        there. Add nothing until that is ordinary. The{" "}
+        <Link to="/fasting" className="font-medium text-accent hover:underline">
+          fasting calendar
+        </Link>{" "}
+        shows what each day asks.
+      </>
+    ),
   },
   {
     q: "Why supplements at all?",
@@ -31,7 +42,16 @@ const FAQS = [
   },
   {
     q: "What is Ember?",
-    a: "A short Sunday letter: one fast, one food, one prayer. Named for the Ember days — four times a year the Church asks the household to fast for the harvest and for priests.",
+    a: (
+      <>
+        A short Sunday letter: one fast, one food, one prayer. Named for the Ember days — four times a
+        year the Church asks the household to fast for the harvest and for priests. Start with{" "}
+        <Link to="/ember" className="font-medium text-accent hover:underline">
+          this week&rsquo;s Ember letter
+        </Link>
+        .
+      </>
+    ),
   },
 ];
 

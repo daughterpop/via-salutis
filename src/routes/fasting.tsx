@@ -153,6 +153,10 @@ function FastingPage() {
         <Link to="/shop" className="font-medium text-accent hover:underline">
           The cellar
         </Link>
+        {" · "}
+        <Link to="/ember" className="font-medium text-accent hover:underline">
+          This week&rsquo;s Ember letter
+        </Link>
       </p>
     </main>
   );

@@ -6,7 +6,7 @@ export const Route = createFileRoute("/essays/")({
   head: () =>
     pageHead({
       title: "Essays",
-      description: "Essays on temperance, fasting, the Eucharist as medicine, and the body as a temple of the Holy Spirit — not a project.",
+      description: "Essays on fasting, temperance, sleep, the table, and the body as a temple — a Catholic rule of life for the household, not a program.",
       path: "/essays",
     }),
   component: EssaysIndex,
@@ -18,7 +18,7 @@ function EssaysIndex() {
       <p className="text-sm font-medium text-accent">Understand</p>
       <h1 className="mt-2 font-display text-3xl font-semibold text-fg sm:text-4xl">Essays</h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-        Temperance, the Eucharist as medicine, and why the body is a dwelling — not a brand.
+        Fasting, temperance, sleep, and why the body is a temple — not a project.
       </p>
       <div className="mt-8 space-y-4">
         {ESSAYS.map((post) => (
