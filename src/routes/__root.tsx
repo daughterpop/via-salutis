@@ -38,6 +38,13 @@ export const Route = createRootRoute({
         href: "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&display=swap",
       },
     ],
+    scripts: [
+      {
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3388682648764850",
+        async: true,
+        crossOrigin: "anonymous",
+      },
+    ],
   }),
   component: RootDocument,
 });
