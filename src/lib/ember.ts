@@ -16,6 +16,26 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "return-the-cloak",
+    issue: 7,
+    title: "Return the cloak",
+    lede: "The Lord tells Israel to return a neighbor’s cloak before sunset so the poor man has something to sleep in. This week the household keeps Friday ordinary, puts real food on the table, and protects one hour of sleep so the body can still love God and the people under the same roof.",
+    dateLabel: "October 25, 2026",
+    sundayLabel: "30th Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Friday, October 30: ordinary abstinence from meat. Nothing added to prove love." },
+      { lane: "food", title: "Ordinary food on the table. The neighbor you love first is the one already in the house." },
+      { lane: "prayer", title: "You shall love the Lord your God with all your heart, with all your soul, and with all your mind." },
+    ],
+    body: [
+      "If you take your neighbor’s cloak as a pledge, return it before sunset. That cloak is the only covering he has for his body. What else has he to sleep in? The law is not abstract. A household knows the same demand in smaller form: the hour after the children are down is the only covering the parent has for rest, and it is easily spent on the last scroll, the unfinished list, or the thing that feels urgent. Return it. The body that still has to reach Mass and carry the week needs the covering.",
+      "Friday, October 30, is the ordinary way a Latin-rite Catholic fourteen and older keeps the word. Abstain from meat. Outside Lent a bishop-approved penance may stand in its place. Those who are ill, pregnant, or nursing, and anyone for whom food is already hard, are not asked to add a stricter fast. Love of God is not measured by what the Church did not require.",
+      "Jesus gathers the whole law into two commandments: love the Lord with all your heart, soul, and mind, and love your neighbor as yourself. In the house the neighbor is often the child who will not settle until you do, or the spouse who needs the table more than another plan. Put ordinary food down without apology. The first love of neighbor is the one already under the roof.",
+      "Psalm 18 calls the Lord rock, fortress, and strength. The strength is received, not manufactured. Keep Friday. Feed the house. Return the hour of sleep before the day ends. That is how a tired parent loves God and neighbor in the body he actually has.",
+      "From the cellar: Transition offers one month free with code TRANSITIONVTRTF4 — adaptive plans for the swim, bike, or run a parent can actually fit around the household, never a substitute for the rest the body needs.",
+    ],
+  },
+  {
     slug: "what-belongs-to-god",
     issue: 6,
     title: "What belongs to God",
