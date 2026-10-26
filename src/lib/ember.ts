@@ -52,7 +52,6 @@ export const EMBER_EDITIONS: EmberEdition[] = [
       "Philippians is the other half of the lesson: the secret of being well fed and of going hungry, of living in abundance and of being in need. The body does not have to be optimized before it can answer the call. Contentment is learned in the ordinary circumstance, not after the schedule clears.",
       "Psalm 23 leads the household beside restful waters and refreshes the soul. Protect one hour of sleep so the house can still reach Mass and Compline. Begin the meal with the sign of the cross. Keep Friday. Come. Many are invited; the few who are chosen are the ones who show up in what they already have.",
       "From the cellar: Oura rings are ten percent off in the shop — a tool for thin nights, not the garment."
-
     ],
   },
   {
@@ -73,7 +72,6 @@ export const EMBER_EDITIONS: EmberEdition[] = [
       "Philippians is the prayer for a tired parent, and it is precise. Have no anxiety at all, but in everything, by prayer and petition, with thanksgiving, make your requests known to God. Then the peace of God that surpasses all understanding will guard your hearts and minds in Christ Jesus. The guarding is not a mood you manufacture after the children are down. It follows the handing over. Name the thing crowding sleep — the bill, the cough, the morning that starts too early — and give it before the meal, with thanks for the food actually on the table.",
       "The face of the Lord is what restores the vine. Tonight, put one question to the house: what did keeping Friday cost — and was it worth it?",
       "From the cellar: Thrive Market is forty percent off a first order in the shop — a restock for thin pantries, not a rule of life."
-
     ],
   },
   {

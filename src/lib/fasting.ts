@@ -174,6 +174,7 @@ function liturgicalName(date: Date): NamedDay | null {
       },
     ],
     [10, 1, { title: "All Saints", solemnity: true, note: "A holy day. Feast. Friday abstinence is dispensed if this falls on Friday." }],
+    [10, 2, { title: "All Souls", solemnity: false, note: "The Commemoration of All the Faithful Departed. Not a holy day, and no required fast — pray for the dead, and name them at the table." }],
     [
       11,
       8,
@@ -208,6 +209,24 @@ function liturgicalName(date: Date): NamedDay | null {
         title: "Christmas",
         solemnity: true,
         note: "The Word became flesh. Feast. If this is a Friday, abstinence is dispensed.",
+      },
+    ],
+    [
+      11,
+      26,
+      {
+        title: "St Stephen",
+        solemnity: false,
+        note: "The first martyr, the day after Christmas. A feast in the octave — no required fast.",
+      },
+    ],
+    [
+      11,
+      28,
+      {
+        title: "Holy Innocents",
+        solemnity: false,
+        note: "The children of Bethlehem, martyrs in the Christmas octave. A feast — no required fast.",
       },
     ],
   ];
