@@ -34,7 +34,15 @@ const FAQS: Array<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Why supplements at all?",
-    a: "Because a cellarer is not an abbot. Magnesium, vitamin D, electrolytes, a ring that tracks sleep — these can serve a household. They cannot consecrate it. The Shop page says when a link is an affiliate.",
+    a: (
+      <>
+        Because a cellarer is not an abbot. Magnesium, vitamin D, electrolytes, a ring that tracks sleep — these can serve a household. They cannot consecrate it. The{" "}
+        <Link to="/shop" className="font-medium text-accent hover:underline">
+          Shop page
+        </Link>{" "}
+        says when a link is an affiliate.
+      </>
+    ),
   },
   {
     q: "How is this related to Via Fidelitatis?",
