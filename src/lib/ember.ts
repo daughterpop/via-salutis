@@ -16,6 +16,25 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "children-of-god-now",
+    issue: 7,
+    title: "Children of God now",
+    lede: "All Saints falls on a Sunday. The household keeps the ordinary Friday that follows, sets an ordinary table, and remembers that we are already called children of God.",
+    dateLabel: "November 1, 2026",
+    sundayLabel: "Solemnity of All Saints",
+    lanes: [
+      { lane: "fast", title: "Friday, November 6: abstinence from meat. The solemnity is past; the rule is not." },
+      { lane: "food", title: "Feed the house what is already there. The multitude in white did not wait for a perfect pantry." },
+      { lane: "prayer", title: "See what love the Father has bestowed on us that we may be called the children of God." },
+    ],
+    body: [
+      "See what love the Father has bestowed on us that we may be called the children of God. Yet so we are. The Sunday Gospel names the poor in spirit, the ones who mourn, the meek. A tired parent recognizes the list. The week that begins after All Saints does not ask the house to become impressive. It asks for the ordinary obedience already known: no meat on Friday, November 6, for those fourteen and older. Pregnant and nursing mothers, the sick, and anyone for whom food is already a war are not asked to add more.",
+      "The great multitude in white robes has washed them in the Blood of the Lamb. That is the end the body is for, not a score. Most weeks the work looks smaller: the supper that is not a performance, the bedtime that is kept so Mass is still possible in the morning, the prayer said when the house is loud. Psalm 24 asks who may stand in the holy place — the one with clean hands and a clean heart. The household does not manufacture purity. It keeps the small rule and asks for the rest.",
+      "Everyone who has this hope based on him makes himself pure, as he is pure. The hope is already given. Protect one night of sleep so the body can still carry the week. Put ordinary food on the table without apology. Say the verse once before the meal. The saints are the ones who kept going with what they had.",
+      "From the cellar: Thrive Market offers forty percent off a first order — ordinary groceries for the table that is already enough.",
+    ],
+  },
+  {
     slug: "what-belongs-to-god",
     issue: 6,
     title: "What belongs to God",
