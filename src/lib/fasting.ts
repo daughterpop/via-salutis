@@ -155,6 +155,23 @@ function liturgicalName(date: Date): NamedDay | null {
     }
   }
 
+  // Holy Family: the Sunday within the octave of Christmas — the Sunday
+  // after Christmas, or December 30 when Christmas itself is a Sunday.
+  // Checked before the fixed feasts so it outranks St John (Dec 27) in
+  // years like 2026, when the Sunday after Christmas is Dec 27.
+  const christmas = atNoon(date.getFullYear(), 11, 25);
+  const holyFamily =
+    christmas.getDay() === 0
+      ? atNoon(date.getFullYear(), 11, 30)
+      : addDays(christmas, 7 - christmas.getDay());
+  if (isSameDay(date, holyFamily)) {
+    return {
+      title: "Holy Family of Jesus, Mary, and Joseph",
+      solemnity: false,
+      note: "The household feast in the Christmas octave. Celebrate the family at the table; keep Friday when it comes.",
+    };
+  }
+
   const m = date.getMonth();
   const d = date.getDate();
   const fixed: Array<readonly [number, number, NamedDay]> = [
