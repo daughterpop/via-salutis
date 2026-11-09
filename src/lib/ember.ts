@@ -16,6 +16,24 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "oil-already-in-hand",
+    issue: 7,
+    title: "Oil already in hand",
+    lede: "The bridegroom is delayed and the house grows drowsy. This week the household keeps Friday ordinary, sets the table with what is already there, and stays awake with the oil already in the flask.",
+    dateLabel: "November 8, 2026",
+    sundayLabel: "32nd Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Friday, November 13: ordinary abstinence from meat. The flask was filled before the delay." },
+      { lane: "food", title: "Set the table from what is already in the house. Do not wait for a perfect pantry." },
+      { lane: "prayer", title: "Therefore, stay awake, for you know neither the day nor the hour." },
+    ],
+    body: [
+      "The children fall asleep first. Then the parent who meant to stay up for one more thing feels the same weight in the eyelids. Matthew’s ten virgins all grew drowsy while the bridegroom delayed. The wise ones had already brought flasks of oil. The difference was not who forced themselves awake longer; it was who had prepared before the delay. Friday, November 13, is the oil already measured for a Latin-rite Catholic fourteen and older: abstain from meat. Outside Lent a bishop-approved penance may stand in its place. Those who are ill, pregnant, or nursing are not asked to add a harder fast to prove the lamp is trimmed.",
+      "Wisdom says whoever watches for her at dawn shall not be disappointed. The household that puts the lights out at a known hour is watching in the ordinary way — so the body can still rise for Mass and for the people under the roof. Psalm 63 has the soul thirsting through the night watches. That thirst does not require a new rule. It is why the flask needs oil before midnight arrives.",
+      "Paul writes about those who have fallen asleep so the living will not grieve like those without hope. The same Lord who will raise the dead calls the living to stay ready. Therefore, stay awake, for you know neither the day nor the hour. Keep the Friday you already know. Set out what the pantry already holds tonight. Let the rest be enough.",
+    ],
+  },
+  {
     slug: "what-belongs-to-god",
     issue: 6,
     title: "What belongs to God",
