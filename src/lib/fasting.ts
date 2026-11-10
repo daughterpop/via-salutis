@@ -193,6 +193,24 @@ function liturgicalName(date: Date): NamedDay | null {
     [10, 1, { title: "All Saints", solemnity: true, note: "A holy day. Feast. Friday abstinence is dispensed if this falls on Friday." }],
     [10, 2, { title: "All Souls", solemnity: false, note: "The Commemoration of All the Faithful Departed. Not a holy day, and no required fast — pray for the dead, and name them at the table." }],
     [
+      10,
+      9,
+      {
+        title: "Dedication of the Lateran Basilica",
+        solemnity: false,
+        note: "The pope's cathedral, the mother church of Rome. A feast — the house belongs to a bigger house. No required fast today.",
+      },
+    ],
+    [
+      10,
+      30,
+      {
+        title: "St Andrew, Apostle",
+        solemnity: false,
+        note: "The first-called apostle. A feast — and the first night of the St. Andrew Christmas novena, prayed nightly to Christmas Eve. No required fast today.",
+      },
+    ],
+    [
       11,
       8,
       {
