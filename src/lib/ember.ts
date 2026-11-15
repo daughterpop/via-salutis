@@ -16,6 +16,25 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "faithful-in-small-matters",
+    issue: 8,
+    title: "Faithful in small matters",
+    lede: "The master returns and settles accounts with what was already given. This week the household keeps the Friday it knows, feeds the table from the hands that are already working, and stays awake with the small talent that was never buried.",
+    dateLabel: "November 15, 2026",
+    sundayLabel: "33rd Sunday in Ordinary Time",
+    lanes: [
+      { lane: "fast", title: "Friday, November 20: abstinence from meat. The one talent is already in the house." },
+      { lane: "food", title: "The worthy wife puts ordinary food on the table. The house does not wait for a perfect week to eat." },
+      { lane: "prayer", title: "Well done, my good and faithful servant. Since you were faithful in small matters, I will give you great responsibilities. Come, share your master’s joy." },
+    ],
+    body: [
+      "The parable does not begin with a new gift. The master calls the servants and entrusts what he already owns. To one five, to another two, to one the single talent. Then he leaves. The two who trade do it immediately. The third digs a hole. A household knows the hole. It is the week that says the rule can wait until the schedule clears, or until the children sleep through the night, or until after the holiday travel. Friday, November 20, is the talent already counted. Latin-rite Catholics fourteen and older abstain from meat. Outside Lent a bishop-approved penance may replace it. Illness, pregnancy, and nursing ask enough; the Church does not require more of them.",
+      "Proverbs places the same work in a house. The woman of worth obtains wool and flax and works with her hands. She rises while it is still night to set food for her household. She opens her hands to the poor. Charm is deceptive; the one who fears the Lord is praised. The fruit of her hands is the supper that is already possible, not a menu that requires a new order. Psalm 128 sees the wife as a fruitful vine and the children as olive plants around the table. The table is the place the talent is put to use.",
+      "Paul tells the Thessalonians they are not in darkness. The day of the Lord comes like a thief, but those who are children of the light stay alert and sober. Remain in me, the Alleluia says, and you will bear fruit. The fruit this week is the ordinary Friday kept, the ordinary meal eaten, the ordinary hour of sleep protected so the house can still reach Mass. The master does not ask for the talent that was never given. He asks for the one that was. Faithful in that small matter is already the share in his joy.",
+      "From the cellar: Thrive Market offers forty percent off a first order in the shop — ordinary food for a thin pantry, not a new rule.",
+    ],
+  },
+  {
     slug: "oil-already-in-hand",
     issue: 7,
     title: "Oil already in hand",
