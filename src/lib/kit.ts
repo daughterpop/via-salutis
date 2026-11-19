@@ -16,21 +16,40 @@ export const LEAD_MAGNET = {
   blurb: "A free two-page printable: a week-by-week plan from November 29 to Christmas Eve, with the Fridays, the Ember days, small sacrifices for adults and children, and the O Antiphons for the table.",
 } as const;
 
+export type SubscribeResult = { status: "sent" } | { status: "guard"; url: string };
+
+type KitResponse = {
+  status?: string;
+  url?: string;
+  consent?: { enabled?: boolean; url?: string };
+  errors?: { messages?: string[] };
+};
+
+const KIT_ORIGIN = "https://app.kit.com";
+
+/** True when a postMessage came from Kit's guard page. */
+export function isKitGuardMessage(e: MessageEvent, name: "ckjs:guard:confirmed" | "ckjs:guard:size") {
+  return e.origin === KIT_ORIGIN && typeof e.data === "object" && e.data !== null && e.data.name === name;
+}
+
 /**
  * Subscribe an email to the Kit form. Posts form-encoded fields (no CORS
- * preflight). If the browser blocks reading the response, retry as no-cors
- * and treat the opaque response as sent; Kit de-duplicates subscribers.
+ * preflight). Kit may answer "quarantined" with a guard URL (a reCAPTCHA page);
+ * the caller must show it, and the subscription only counts once the visitor
+ * passes it. If the browser blocks reading the response, retry as no-cors and
+ * treat the opaque response as sent; Kit de-duplicates subscribers.
  */
-export async function subscribe(email: string, firstName?: string) {
+export async function subscribe(email: string, firstName?: string): Promise<SubscribeResult> {
   if (!kitEnabled()) {
-    return submitForm({
+    await submitForm({
       email,
       _subject: "New Via Salutis subscriber",
       _template: "table",
       _captcha: "false",
     });
+    return { status: "sent" };
   }
-  const url = `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`;
+  const url = `${KIT_ORIGIN}/forms/${KIT_FORM_ID}/subscriptions`;
   const body = new FormData();
   body.set("email_address", email);
   if (firstName) body.set("first_name", firstName);
@@ -39,8 +58,12 @@ export async function subscribe(email: string, firstName?: string) {
     response = await fetch(url, { method: "POST", body, headers: { Accept: "application/json" } });
   } catch {
     await fetch(url, { method: "POST", body, mode: "no-cors" });
-    return { status: "sent" as const };
+    return { status: "sent" };
   }
   if (!response.ok) throw new Error(`Kit returned ${response.status}`);
-  return { status: "sent" as const };
+  const data = (await response.json().catch(() => ({}))) as KitResponse;
+  if (data.status === "quarantined" && data.url?.startsWith(KIT_ORIGIN)) return { status: "guard", url: data.url };
+  if (data.consent?.enabled && data.consent.url?.startsWith(KIT_ORIGIN)) return { status: "guard", url: data.consent.url };
+  if (data.status && data.status !== "success") throw new Error(data.errors?.messages?.join(" ") || `Kit status ${data.status}`);
+  return { status: "sent" };
 }

@@ -1,24 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { formatIssue, latestEdition } from "@/lib/ember";
-import { kitEnabled, LEAD_MAGNET, subscribe } from "@/lib/kit";
+import { isKitGuardMessage, kitEnabled, LEAD_MAGNET, subscribe } from "@/lib/kit";
 
 export function SubscribeForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [guardUrl, setGuardUrl] = useState<string | null>(null);
+  const [guardHeight, setGuardHeight] = useState(500);
   const latest = latestEdition();
   const kit = kitEnabled();
+
+  // Kit's security check (reCAPTCHA) runs in an iframe and reports back by postMessage.
+  useEffect(() => {
+    if (!guardUrl) return;
+    const onMessage = (e: MessageEvent) => {
+      if (isKitGuardMessage(e, "ckjs:guard:size") && typeof e.data.height === "number") {
+        setGuardHeight(Math.max(120, Math.min(600, e.data.height)));
+      }
+      if (isKitGuardMessage(e, "ckjs:guard:confirmed")) {
+        setGuardUrl(null);
+        setSubmitted(true);
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [guardUrl]);
 
   const handleSubscribe = async () => {
     if (!email.includes("@")) return;
     setLoading(true);
     setError(null);
     try {
-      await subscribe(email.trim());
-      setSubmitted(true);
+      const result = await subscribe(email.trim());
+      if (result.status === "guard") setGuardUrl(result.url);
+      else setSubmitted(true);
     } catch {
       setError("Something went wrong. Try again later.");
     } finally {
@@ -44,7 +63,17 @@ export function SubscribeForm() {
           </p>
         </>
       )}
-      {!submitted ? (
+      {guardUrl && !submitted ? (
+        <div className="space-y-3">
+          <p className="text-sm text-muted">Kit asks for a quick security check before it sends the confirmation email.</p>
+          <iframe
+            src={guardUrl}
+            title="Kit security check"
+            className="mx-auto w-full max-w-[400px] rounded-xl border border-border bg-surface"
+            style={{ height: guardHeight }}
+          />
+        </div>
+      ) : !submitted ? (
         <div className="space-y-4">
           <input
             type="email"
