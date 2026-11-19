@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { pageHead } from "@/lib/seo";
 import { SISTER } from "@/lib/site";
+import { withUtm } from "@/lib/utm";
 
 export const Route = createFileRoute("/faq")({
   head: () =>
@@ -82,7 +83,7 @@ function FaqPage() {
       </dl>
       <p className="mt-8 text-sm text-muted">
         Still looking for the money tools?{" "}
-        <a href={SISTER.href} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={withUtm(SISTER.href, { source: "viasalutis", medium: "referral", campaign: "faq" })} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
           {SISTER.name}
         </a>
         {" · "}

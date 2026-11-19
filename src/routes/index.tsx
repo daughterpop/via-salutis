@@ -5,6 +5,7 @@ import { EmberBand } from "@/components/ember-band";
 import { SubscribeForm } from "@/components/subscribe-form";
 import { ESSAYS, ESSAY_SEQUENCE } from "@/lib/essays";
 import { SITE, SISTER } from "@/lib/site";
+import { withUtm } from "@/lib/utm";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -185,13 +186,13 @@ function Home() {
           <h2 className="mt-2 font-display text-2xl font-semibold text-fg">Fidelity with money. Salus with the body.</h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
             {SITE.name} is the sibling of{" "}
-            <a href={SISTER.href} className="font-medium text-accent underline-offset-2 hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href={withUtm(SISTER.href, { source: "viasalutis", medium: "referral", campaign: "home" })} className="font-medium text-accent underline-offset-2 hover:underline" target="_blank" rel="noopener noreferrer">
               {SISTER.name}
             </a>
             . Same vocation. Different matter. Clear the numbers on one side; keep the flesh a fit tabernacle on the other.
           </p>
           <a
-            href={SISTER.href}
+            href={withUtm(SISTER.href, { source: "viasalutis", medium: "referral", campaign: "home" })}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-hover"

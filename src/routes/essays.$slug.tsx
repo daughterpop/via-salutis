@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { essayBySlug, ESSAYS } from "@/lib/essays";
 import { essayHead } from "@/lib/seo";
 import { SISTER } from "@/lib/site";
+import { withUtm } from "@/lib/utm";
 
 export const Route = createFileRoute("/essays/$slug")({
   loader: ({ params }) => {
@@ -16,6 +17,11 @@ export const Route = createFileRoute("/essays/$slug")({
 function EssayPage() {
   const essay = Route.useLoaderData();
   const others = ESSAYS.filter((e) => e.slug !== essay.slug).slice(0, 2);
+  const sisterHref = withUtm(SISTER.href, {
+    source: "viasalutis",
+    medium: "referral",
+    campaign: essay.slug,
+  });
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12">
@@ -34,7 +40,7 @@ function EssayPage() {
       </div>
       <p className="mt-10 text-sm leading-relaxed text-muted">
         For the money side of the same vocation, see{" "}
-        <a href={SISTER.href} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={sisterHref} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
           {SISTER.name}
         </a>
         .

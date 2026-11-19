@@ -1,9 +1,16 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ExternalLink } from "lucide-react";
 import { FOOTER_NAV, SITE, SISTER } from "@/lib/site";
+import { campaignFromPath, withUtm } from "@/lib/utm";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const sisterHref = withUtm(SISTER.href, {
+    source: "viasalutis",
+    medium: "referral",
+    campaign: campaignFromPath(pathname),
+  });
 
   return (
     <footer className="mt-auto border-t border-border bg-surface">
@@ -43,7 +50,7 @@ export function SiteFooter() {
               </p>
             </div>
             <a
-              href={SISTER.href}
+              href={sisterHref}
               target="_blank"
               rel="noopener noreferrer"
               className="group block"

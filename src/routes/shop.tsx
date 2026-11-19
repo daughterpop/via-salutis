@@ -3,6 +3,7 @@ import { pageHead } from "@/lib/seo";
 import { ExternalLink } from "lucide-react";
 import { liveReferrals, recommendedReferrals } from "@/lib/referrals";
 import { SISTER } from "@/lib/site";
+import { withUtm } from "@/lib/utm";
 
 export const Route = createFileRoute("/shop")({
   head: () =>
@@ -25,7 +26,7 @@ function ShopPage() {
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
         Supplements, sleep, and the training you actually do — with the
         referral perk written in the open. No protocol. No medical claims. Money tools live on{" "}
-        <a href={SISTER.href} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={withUtm(SISTER.href, { source: "viasalutis", medium: "referral", campaign: "shop" })} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
           {SISTER.name}
         </a>
         .

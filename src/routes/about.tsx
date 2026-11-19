@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { pageHead } from "@/lib/seo";
 import { SITE, SISTER } from "@/lib/site";
+import { withUtm } from "@/lib/utm";
 
 export const Route = createFileRoute("/about")({
   head: () =>
@@ -13,6 +14,12 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const sisterHref = withUtm(SISTER.href, {
+    source: "viasalutis",
+    medium: "referral",
+    campaign: "about",
+  });
+
   return (
     <main className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12">
       <p className="text-sm font-medium text-accent">The house</p>
@@ -29,7 +36,7 @@ function AboutPage() {
         </p>
         <p>
           This site is the sibling of{" "}
-          <a href={SISTER.href} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+          <a href={sisterHref} className="font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">
             {SISTER.name}
           </a>
           , which does the same work with money. One household. Two roads. Fidelity with the ledger; <em>salus</em> with
@@ -51,7 +58,7 @@ function AboutPage() {
           <p className="mt-1 text-sm text-muted">Friday, Ember, Lent — the floor of the rule.</p>
         </Link>
         <a
-          href={SISTER.href}
+          href={sisterHref}
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-2xl border border-border bg-surface p-5 hover:border-accent-soft"
