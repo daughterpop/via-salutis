@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { formatIssue, latestEdition } from "@/lib/ember";
-import { submitForm } from "@/lib/formsubmit";
+import { kitEnabled, LEAD_MAGNET, subscribe } from "@/lib/kit";
 
 export function SubscribeForm() {
   const [email, setEmail] = useState("");
@@ -10,18 +10,14 @@ export function SubscribeForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const latest = latestEdition();
+  const kit = kitEnabled();
 
   const handleSubscribe = async () => {
     if (!email.includes("@")) return;
     setLoading(true);
     setError(null);
     try {
-      await submitForm({
-        email,
-        _subject: "New Via Salutis subscriber",
-        _template: "table",
-        _captcha: "false",
-      });
+      await subscribe(email.trim());
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Try again later.");
@@ -32,10 +28,22 @@ export function SubscribeForm() {
 
   return (
     <div className="mx-auto mt-8 w-full max-w-md rounded-2xl bg-surface p-6 text-center shadow-md sm:mt-12 sm:p-8">
-      <h2 className="mb-3 font-display text-2xl font-semibold sm:text-3xl">Get Ember on Sunday</h2>
-      <p className="mb-6 text-sm text-muted sm:text-base">
-        One email on Sunday. Fast, food, and prayer for the week — not a protocol dump.
-      </p>
+      {kit ? (
+        <>
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[1.5px] text-gold">Free printable</p>
+          <h2 className="mb-3 font-display text-2xl font-semibold sm:text-3xl">{LEAD_MAGNET.title}</h2>
+          <p className="mb-6 text-sm text-muted sm:text-base">
+            {LEAD_MAGNET.blurb} Then Ember each Sunday: one fast, one food, one prayer for the week.
+          </p>
+        </>
+      ) : (
+        <>
+          <h2 className="mb-3 font-display text-2xl font-semibold sm:text-3xl">Get Ember on Sunday</h2>
+          <p className="mb-6 text-sm text-muted sm:text-base">
+            One email on Sunday. Fast, food, and prayer for the week — not a protocol dump.
+          </p>
+        </>
+      )}
       {!submitted ? (
         <div className="space-y-4">
           <input
@@ -55,13 +63,20 @@ export function SubscribeForm() {
             disabled={!email.includes("@") || loading}
             className="flex w-full items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3 text-base text-surface hover:bg-accent-hover disabled:opacity-50 sm:px-8 sm:py-4 sm:text-lg"
           >
-            {loading ? "Sending…" : "Subscribe"} <ArrowRight size={20} />
+            {loading ? "Sending…" : kit ? "Send me the plan" : "Subscribe"} <ArrowRight size={20} />
           </button>
           <p className="text-xs text-muted">Unsubscribe anytime. No spam.</p>
         </div>
       ) : (
         <div className="text-left">
-          <p className="mb-4 text-center text-lg font-semibold text-accent sm:text-xl">You’re on the list.</p>
+          <p className="mb-2 text-center text-lg font-semibold text-accent sm:text-xl">
+            {kit ? "Check your email." : "You’re on the list."}
+          </p>
+          {kit && (
+            <p className="mb-4 text-center text-sm text-muted">
+              Confirm your address and the Advent plan comes in the next email.
+            </p>
+          )}
           <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">
             Welcome gift · {formatIssue(latest)}
           </p>
