@@ -119,7 +119,10 @@ function FastingPage() {
             <li>Ages 18–59: Ash Wednesday and Good Friday are fast and abstinence.</li>
             <li>Eucharistic fast: one hour before Communion.</li>
             <li>
-              Ember days {cursor.year} (traditional, not required in the U.S.):
+              <Link to="/ember-days" className="font-medium text-accent hover:underline">
+                Ember days
+              </Link>{" "}
+              {cursor.year} (traditional, not required in the U.S.):
               <ul className="mt-2 space-y-1 pl-4">
                 {emberYear.map((season) => (
                   <li key={season.season}>
@@ -139,6 +142,24 @@ function FastingPage() {
           </p>
         </section>
       </div>
+
+      <section className="mt-8 rounded-2xl border border-border bg-surface p-5">
+        <h2 className="font-semibold text-fg">The seasons</h2>
+        <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
+          <li>
+            <Link to="/advent" className="font-medium text-accent hover:underline">
+              How to fast in Advent
+            </Link>
+            : what is required, what is traditional, and a family plan.
+          </li>
+          <li>
+            <Link to="/ember-days" className="font-medium text-accent hover:underline">
+              Ember Days 2026–2027
+            </Link>
+            : every date, the old rule, and how to keep them now.
+          </li>
+        </ul>
+      </section>
 
       <p className="mt-8 text-sm text-muted">
         Next:{" "}

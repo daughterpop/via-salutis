@@ -96,6 +96,33 @@ function articleJsonLd(opts: { headline: string; description: string; path: stri
   };
 }
 
+export type GuideFaq = { q: string; a: string };
+
+/** Evergreen guide pages (/advent, /ember-days): Article JSON-LD plus an optional FAQPage. */
+export function guideHead(opts: { title: string; description: string; path: string; date: string; faqs?: GuideFaq[] }) {
+  const article = articleJsonLd({ headline: opts.title, description: opts.description, path: opts.path, date: opts.date });
+  const { "@context": _context, ...articleNode } = article;
+  const graph: Record<string, unknown>[] = [articleNode];
+  if (opts.faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      url: absoluteUrl(opts.path),
+      mainEntity: opts.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  return pageHead({
+    title: opts.title,
+    description: opts.description,
+    path: opts.path,
+    type: "article",
+    jsonLd: { "@context": "https://schema.org", "@graph": graph },
+  });
+}
+
 export function essayHead(essay: Essay) {
   const path = `/essays/${essay.slug}`;
   return pageHead({
@@ -120,7 +147,10 @@ export function emberHead(edition: EmberEdition = latestEdition(), path?: string
 }
 
 /** Static, indexable routes. Keep in sync with src/routes when adding pages. */
-export const STATIC_PATHS = ["/", "/fasting", "/essays", "/ember", "/shop", "/faq", "/about", "/contact"] as const;
+export const STATIC_PATHS = ["/", "/fasting", "/advent", "/ember-days", "/essays", "/ember", "/shop", "/faq", "/about", "/contact"] as const;
+
+/** Last substantive edit to the seasonal guides. */
+export const GUIDE_UPDATED = "2026-11-18";
 
 export type SitemapEntry = { loc: string; lastmod?: string };
 
@@ -134,6 +164,8 @@ export function sitemapEntries(): SitemapEntry[] {
     "/": newest,
     "/ember": latestEmber,
     "/essays": latestEssay,
+    "/advent": GUIDE_UPDATED,
+    "/ember-days": GUIDE_UPDATED,
   };
 
   return [
