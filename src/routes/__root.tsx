@@ -13,6 +13,7 @@ export const Route = createRootRoute({
       { title: `${SITE.name} — ${SITE.tagline}` },
       { name: "description", content: SITE.description },
       { name: "theme-color", content: "#8c3d32" },
+      { name: "p:domain_verify", content: "ede8f416e4aafbf0c3b57440e1833332" },
       { property: "og:title", content: `${SITE.name} — ${SITE.tagline}` },
       { property: "og:description", content: SITE.description },
       { property: "og:type", content: "website" },
