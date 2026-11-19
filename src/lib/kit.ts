@@ -6,7 +6,7 @@ import { submitForm } from "@/lib/formsubmit";
  * the action URL: https://app.kit.com/forms/<FORM_ID>/subscriptions).
  * While it is "PENDING", signups keep going to FormSubmit so nothing breaks.
  */
-export const KIT_FORM_ID: string = "PENDING";
+export const KIT_FORM_ID: string = "10211477";
 
 export const kitEnabled = () => KIT_FORM_ID !== "PENDING" && /^\d+$/.test(KIT_FORM_ID);
 
