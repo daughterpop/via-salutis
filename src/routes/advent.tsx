@@ -3,6 +3,7 @@ import { GuideFaqList, GuideSection, linkClass } from "@/components/guide";
 import { SubscribeForm } from "@/components/subscribe-form";
 import { GUIDE_UPDATED, guideHead, type GuideFaq } from "@/lib/seo";
 import { SISTER } from "@/lib/site";
+import { withUtm } from "@/lib/utm";
 
 const FAQS: GuideFaq[] = [
   {
@@ -79,6 +80,12 @@ const WEEKS: Array<{ label: string; dates: string; items: string[] }> = [
 ];
 
 function AdventPage() {
+  const sisterHref = withUtm(SISTER.href, {
+    source: "viasalutis",
+    medium: "referral",
+    campaign: "advent",
+  });
+
   return (
     <main className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-12">
       <p className="text-sm font-medium text-accent">A Catholic guide · Advent 2026</p>
@@ -249,7 +256,7 @@ function AdventPage() {
         </ul>
         <p className="mt-6">
           If the Christmas budget is what crowds out prayer this month, the sister site{" "}
-          <a href={SISTER.href} className={linkClass} target="_blank" rel="noopener noreferrer">
+          <a href={sisterHref} className={linkClass} target="_blank" rel="noopener noreferrer">
             {SISTER.name}
           </a>{" "}
           has calculators and writing for that side of the house.
