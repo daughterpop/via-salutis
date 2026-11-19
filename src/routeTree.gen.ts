@@ -11,12 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdventRouteImport } from './routes/advent'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EmberRouteImport } from './routes/ember'
+import { Route as EmberDaysRouteImport } from './routes/ember-days'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FastingRouteImport } from './routes/fasting'
+import { Route as FeedDotxmlRouteImport } from './routes/feed[.]xml'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as EmberSlugRouteImport } from './routes/ember.$slug'
 import { Route as EssaysIndexRouteImport } from './routes/essays.index'
 import { Route as EssaysSlugRouteImport } from './routes/essays.$slug'
 
@@ -30,6 +35,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdventRoute = AdventRouteImport.update({
+  id: '/advent',
+  path: '/advent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -38,6 +48,11 @@ const ContactRoute = ContactRouteImport.update({
 const EmberRoute = EmberRouteImport.update({
   id: '/ember',
   path: '/ember',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmberDaysRoute = EmberDaysRouteImport.update({
+  id: '/ember-days',
+  path: '/ember-days',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -50,6 +65,16 @@ const FastingRoute = FastingRouteImport.update({
   path: '/fasting',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedDotxmlRoute = FeedDotxmlRouteImport.update({
+  id: '/feed.xml',
+  path: '/feed.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
@@ -59,6 +84,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
+} as any)
+const EmberSlugRoute = EmberSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => EmberRoute,
 } as any)
 const EssaysIndexRoute = EssaysIndexRouteImport.update({
   id: '/essays/',
@@ -74,24 +104,34 @@ const EssaysSlugRoute = EssaysSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advent': typeof AdventRoute
   '/contact': typeof ContactRoute
-  '/ember': typeof EmberRoute
+  '/ember': typeof EmberRouteWithChildren
+  '/ember-days': typeof EmberDaysRoute
   '/faq': typeof FaqRoute
   '/fasting': typeof FastingRoute
+  '/feed.xml': typeof FeedDotxmlRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ember/$slug': typeof EmberSlugRoute
   '/essays/$slug': typeof EssaysSlugRoute
   '/essays/': typeof EssaysIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advent': typeof AdventRoute
   '/contact': typeof ContactRoute
-  '/ember': typeof EmberRoute
+  '/ember': typeof EmberRouteWithChildren
+  '/ember-days': typeof EmberDaysRoute
   '/faq': typeof FaqRoute
   '/fasting': typeof FastingRoute
+  '/feed.xml': typeof FeedDotxmlRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ember/$slug': typeof EmberSlugRoute
   '/essays/$slug': typeof EssaysSlugRoute
   '/essays': typeof EssaysIndexRoute
 }
@@ -99,12 +139,17 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advent': typeof AdventRoute
   '/contact': typeof ContactRoute
-  '/ember': typeof EmberRoute
+  '/ember': typeof EmberRouteWithChildren
+  '/ember-days': typeof EmberDaysRoute
   '/faq': typeof FaqRoute
   '/fasting': typeof FastingRoute
+  '/feed.xml': typeof FeedDotxmlRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ember/$slug': typeof EmberSlugRoute
   '/essays/$slug': typeof EssaysSlugRoute
   '/essays/': typeof EssaysIndexRoute
 }
@@ -113,36 +158,51 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/advent'
     | '/contact'
     | '/ember'
+    | '/ember-days'
     | '/faq'
     | '/fasting'
+    | '/feed.xml'
+    | '/robots.txt'
     | '/shop'
     | '/sitemap.xml'
+    | '/ember/$slug'
     | '/essays/$slug'
     | '/essays/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/advent'
     | '/contact'
     | '/ember'
+    | '/ember-days'
     | '/faq'
     | '/fasting'
+    | '/feed.xml'
+    | '/robots.txt'
     | '/shop'
     | '/sitemap.xml'
+    | '/ember/$slug'
     | '/essays/$slug'
     | '/essays'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/advent'
     | '/contact'
     | '/ember'
+    | '/ember-days'
     | '/faq'
     | '/fasting'
+    | '/feed.xml'
+    | '/robots.txt'
     | '/shop'
     | '/sitemap.xml'
+    | '/ember/$slug'
     | '/essays/$slug'
     | '/essays/'
   fileRoutesById: FileRoutesById
@@ -150,10 +210,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdventRoute: typeof AdventRoute
   ContactRoute: typeof ContactRoute
-  EmberRoute: typeof EmberRoute
+  EmberRoute: typeof EmberRouteWithChildren
+  EmberDaysRoute: typeof EmberDaysRoute
   FaqRoute: typeof FaqRoute
   FastingRoute: typeof FastingRoute
+  FeedDotxmlRoute: typeof FeedDotxmlRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   EssaysSlugRoute: typeof EssaysSlugRoute
@@ -176,6 +240,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advent': {
+      id: '/advent'
+      path: '/advent'
+      fullPath: '/advent'
+      preLoaderRoute: typeof AdventRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -188,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/ember'
       fullPath: '/ember'
       preLoaderRoute: typeof EmberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ember-days': {
+      id: '/ember-days'
+      path: '/ember-days'
+      fullPath: '/ember-days'
+      preLoaderRoute: typeof EmberDaysRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -204,6 +282,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FastingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feed.xml': {
+      id: '/feed.xml'
+      path: '/feed.xml'
+      fullPath: '/feed.xml'
+      preLoaderRoute: typeof FeedDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shop': {
       id: '/shop'
       path: '/shop'
@@ -217,6 +309,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/ember/$slug': {
+      id: '/ember/$slug'
+      path: '/$slug'
+      fullPath: '/ember/$slug'
+      preLoaderRoute: typeof EmberSlugRouteImport
+      parentRoute: typeof EmberRoute
     }
     '/essays/': {
       id: '/essays/'
@@ -235,13 +334,27 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface EmberRouteChildren {
+  EmberSlugRoute: typeof EmberSlugRoute
+}
+
+const EmberRouteChildren: EmberRouteChildren = {
+  EmberSlugRoute: EmberSlugRoute,
+}
+
+const EmberRouteWithChildren = EmberRoute._addFileChildren(EmberRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdventRoute: AdventRoute,
   ContactRoute: ContactRoute,
-  EmberRoute: EmberRoute,
+  EmberRoute: EmberRouteWithChildren,
+  EmberDaysRoute: EmberDaysRoute,
   FaqRoute: FaqRoute,
   FastingRoute: FastingRoute,
+  FeedDotxmlRoute: FeedDotxmlRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   EssaysSlugRoute: EssaysSlugRoute,

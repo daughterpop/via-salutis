@@ -51,6 +51,14 @@ function Home() {
             See this week’s fast
           </Link>
           <p className="mt-5 text-sm text-muted">
+            <Link to="/advent" className="font-medium text-accent underline-offset-2 hover:underline">
+              Fasting in Advent
+            </Link>
+            <span className="text-border"> · </span>
+            <Link to="/ember-days" className="font-medium text-accent underline-offset-2 hover:underline">
+              Ember Days
+            </Link>
+            <span className="text-border"> · </span>
             <Link to="/faq" className="font-medium text-accent underline-offset-2 hover:underline">
               Common questions
             </Link>
@@ -63,6 +71,23 @@ function Home() {
       </div>
 
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-10 sm:px-6 sm:py-12">
+        <div className="rounded-2xl border border-accent-soft bg-accent-soft/40 p-5 sm:p-6">
+          <p className="text-[10px] font-semibold uppercase tracking-[1.5px] text-accent">The season</p>
+          <h2 className="mt-1 text-lg font-semibold text-fg">Advent begins Sunday, November 29</h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            No fast is required, but Fridays still count and the December Ember days fall on the 16th, 18th, and
+            19th.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <Link to="/advent" className="inline-flex items-center gap-1 font-medium text-accent hover:text-accent-hover">
+              How to fast in Advent <ArrowRight size={14} />
+            </Link>
+            <Link to="/ember-days" className="inline-flex items-center gap-1 font-medium text-accent hover:text-accent-hover">
+              Ember Days dates and rules <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+
         <h2 className="text-center text-xl font-bold text-fg sm:text-2xl">A simple path</h2>
 
         <Link

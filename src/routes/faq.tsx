@@ -23,7 +23,11 @@ const FAQS: Array<{ q: string; a: ReactNode }> = [
     a: (
       <>
         No. The floor for most Latin-rite Catholics is Friday abstinence and the two fast days of Ash
-        Wednesday and Good Friday. Ember days are traditional, not currently required in the U.S. Start
+        Wednesday and Good Friday.{" "}
+        <Link to="/ember-days" className="font-medium text-accent hover:underline">
+          Ember days
+        </Link>{" "}
+        are traditional, not currently required in the U.S., and Advent carries no required fast. Start
         there. Add nothing until that is ordinary. The{" "}
         <Link to="/fasting" className="font-medium text-accent hover:underline">
           fasting calendar
