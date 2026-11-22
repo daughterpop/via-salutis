@@ -16,6 +16,26 @@ export type EmberEdition = {
 
 export const EMBER_EDITIONS: EmberEdition[] = [
   {
+    slug: "whatever-you-did-for-the-least",
+    issue: 8,
+    title: "Whatever you did for the least",
+    lede: "Christ the King ends the year with a judgment by ordinary mercy. This week the household keeps Friday after the feast, feeds the people already gathered, and prays with the sheep and the goats.",
+    dateLabel: "November 22, 2026",
+    sundayLabel: "Solemnity of Our Lord Jesus Christ, King of the Universe",
+    lanes: [
+      { lane: "fast", title: "Friday, November 27: ordinary abstinence after Thursday’s feast. The rule does not take a holiday." },
+      { lane: "food", title: "Set the table for the ones already in the house. The least brothers are often the children still hungry at six." },
+      { lane: "prayer", title: "Amen, I say to you, whatever you did for one of the least brothers of mine, you did for me." },
+    ],
+    body: [
+      "When the Son of Man comes in his glory he separates the sheep from the goats. The difference is not what they believed in private. It is what they did when someone was hungry.",
+      "A parent knows the scene. Someone is always hungry at the wrong hour. The toddler wants more of the same thing. The teenager says nothing and takes the last of the bread. After Thursday’s feast the leftovers are still in the fridge, and the ordinary Friday arrives with the same question.",
+      "Friday, November 27, is the ordinary rule: Latin-rite Catholics fourteen and older abstain from meat. In the U.S. a bishop-approved penance may take its place outside Lent. Those who are ill, pregnant, or nursing are not asked to add anything. The feast on Thursday does not cancel the Friday. Feed the house from what is already there. The king is not looking for a new menu.",
+      "Ezekiel says the Lord himself will pasture the sheep and give them rest. Psalm 23 says the Lord is my shepherd; there is nothing I shall want. The body that kept the feast can still keep the Friday. Amen, I say to you, whatever you did for one of the least brothers of mine, you did for me. Keep the rule. Leave the judgment to the King.",
+      "From the cellar: Transition offers one month free with the code TRANSITIONVTRTF4 — adaptive plans for a house that also has a job and children. Not a substitute for the Friday already marked.",
+    ],
+  },
+  {
     slug: "oil-already-in-hand",
     issue: 7,
     title: "Oil already in hand",
