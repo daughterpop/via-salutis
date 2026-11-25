@@ -153,6 +153,12 @@ function FastingPage() {
             : what is required, what is traditional, and a family plan.
           </li>
           <li>
+            <Link to="/lent" className="font-medium text-accent hover:underline">
+              Lent 2027: Catholic fasting rules and dates
+            </Link>
+            : Ash Wednesday, Good Friday, and the Fridays of the season.
+          </li>
+          <li>
             <Link to="/ember-days" className="font-medium text-accent hover:underline">
               Ember Days 2026–2027
             </Link>

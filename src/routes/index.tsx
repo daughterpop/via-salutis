@@ -56,6 +56,10 @@ function Home() {
               Fasting in Advent
             </Link>
             <span className="text-border"> · </span>
+            <Link to="/lent" className="font-medium text-accent underline-offset-2 hover:underline">
+              Lent 2027
+            </Link>
+            <span className="text-border"> · </span>
             <Link to="/ember-days" className="font-medium text-accent underline-offset-2 hover:underline">
               Ember Days
             </Link>

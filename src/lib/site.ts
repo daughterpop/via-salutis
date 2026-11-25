@@ -25,6 +25,7 @@ export const NAV = [
 export const FOOTER_NAV = [
   ...NAV,
   { to: "/advent", label: "Advent" },
+  { to: "/lent", label: "Lent" },
   { to: "/ember-days", label: "Ember Days" },
   { to: "/faq", label: "FAQ" },
   { to: "/about", label: "About" },

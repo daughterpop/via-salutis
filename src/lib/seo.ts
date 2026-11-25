@@ -98,7 +98,7 @@ function articleJsonLd(opts: { headline: string; description: string; path: stri
 
 export type GuideFaq = { q: string; a: string };
 
-/** Evergreen guide pages (/advent, /ember-days): Article JSON-LD plus an optional FAQPage. */
+/** Evergreen guide pages (/advent, /ember-days, /lent): Article JSON-LD plus an optional FAQPage. */
 export function guideHead(opts: { title: string; description: string; path: string; date: string; faqs?: GuideFaq[] }) {
   const article = articleJsonLd({ headline: opts.title, description: opts.description, path: opts.path, date: opts.date });
   const { "@context": _context, ...articleNode } = article;
@@ -147,10 +147,10 @@ export function emberHead(edition: EmberEdition = latestEdition(), path?: string
 }
 
 /** Static, indexable routes. Keep in sync with src/routes when adding pages. */
-export const STATIC_PATHS = ["/", "/fasting", "/advent", "/ember-days", "/essays", "/ember", "/shop", "/faq", "/about", "/contact"] as const;
+export const STATIC_PATHS = ["/", "/fasting", "/advent", "/lent", "/ember-days", "/essays", "/ember", "/shop", "/faq", "/about", "/contact"] as const;
 
 /** Last substantive edit to the seasonal guides. */
-export const GUIDE_UPDATED = "2026-11-18";
+export const GUIDE_UPDATED = "2026-11-25";
 
 export type SitemapEntry = { loc: string; lastmod?: string };
 
@@ -165,6 +165,7 @@ export function sitemapEntries(): SitemapEntry[] {
     "/ember": latestEmber,
     "/essays": latestEssay,
     "/advent": GUIDE_UPDATED,
+    "/lent": GUIDE_UPDATED,
     "/ember-days": GUIDE_UPDATED,
   };
 
