@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { AdSenseUnit } from "@/components/adsense-unit";
 
 export function SiteShell({
   children,
@@ -13,6 +14,7 @@ export function SiteShell({
     <div className="flex min-h-screen flex-col bg-bg text-fg">
       <SiteHeader showReferralStrip={showReferralStrip} />
       <div className="flex-1">{children}</div>
+      <AdSenseUnit />
       <SiteFooter />
     </div>
   );
